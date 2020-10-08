@@ -1,0 +1,66 @@
+
+<form #myform=ngForm (ngSubmit)="myform.valid &&  addScheduledFlight(myform)">
+
+    <div class="col-7">
+        <input type="number" name="availableSeats" placeholder="availableSeats" ngModel #availableseatCtrl=ngModel class="form-control" >    
+    </div>
+    
+    <div *ngIf="availableseatCtrl.errors!=null && availableseatCtrl.errors.required" class="error">
+    
+    </div>
+    <div class="col-7">
+        <input type="number" name="scheduleId" placeholder="scheduleId" ngModel #scheduleIdCtrl=ngModel class="form-control" >    
+    </div>
+    
+    <div *ngIf="scheduleIdCtrl.errors!=null && scheduleIdCtrl.errors.required" class="error">
+     scheduleId is required
+    </div>
+    <div class="col-7">
+        <input type="text" name="flightNumber" placeholder="flightNumber" ngModel #flightNumberCtrl=ngModel class="form-control" >    
+    </div>
+    
+    <div *ngIf="flightNumberCtrl.errors!=null && flightNumberCtrl.errors.required" class="error">
+     flightNumber is required
+    </div>
+    
+       <div style="position:absolute;margin-left: 10px; margin-top: 10px;">
+    <input type="submit" value="Submit"  class="btn btn-primary">    
+    </div>
+    </form>
+
+<!---
+<form #myform=ngForm (ngSubmit)="addScheduledFlight(myform)">
+    <div>
+    <input type="number" ngModel name="availableSeats">
+    </div>
+
+    <div>    
+    <input type="number" ngModel name="scheduleId">
+    </div>
+
+    <div>    
+    <input type="number" ngModel name="flightNumber">
+    </div>
+
+    <div>    
+    <input type="submit" value="Submit">
+    </div>
+  </form>
+--->
+    <div *ngIf="scheduledflight!==undefined">
+      <h2>Added scheduled flight is </h2>
+      sfId is {{scheduledflight.sfId}}
+      availableSeats are {{scheduledflight.availableSeats}}
+      scheduleId is {{scheduledflight.scheduleId}}
+      flightNumber is {{scheduledflight.flightNumber}}
+      arrival Time is {{getDate(scheduledflight.arrivalTime)}}
+      departure Time is {{getDate(scheduledflight.departureTime)}}
+      source Airport is {{scheduledflight.sourceAirport}}
+      destination Airport is {{scheduledflight.destinationAirport}}
+      airport Code is {{scheduledflight.airportCode}}
+      flight Model is {{scheduledflight.flightModel}}
+      carrier Name is {{scheduledflight.carrierName}}
+      seat Capacity is {{scheduledflight.seatCapacity}}
+  </div>
+        
+       

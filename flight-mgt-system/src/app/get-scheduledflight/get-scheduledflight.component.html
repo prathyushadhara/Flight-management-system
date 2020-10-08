@@ -1,0 +1,31 @@
+
+<form #sfform=ngForm (ngSubmit)=findScheduledFlight(sfform) >
+
+    <div class="form-group">
+    <label>sfId</label>
+    <input type="any" name="sfId"   ngModel class="form-control">
+  </div>
+    <input type="submit" value="Search" class="btn btn-success">
+  </form>
+  <br>
+  
+  <div *ngIf="scheduledflight!==undefined">
+    
+    <ul style="position: relative; margin-top: 50px;">
+      <h2>Searched scheduled flight details are </h2>
+     <li>sfId is {{scheduledflight.sfId}}</li>
+     <li>available seats are {{scheduledflight.availableSeats}}</li>
+     <li>scheduleId is {{scheduledflight.scheduleId}}</li>
+     <li>flightNumber is {{scheduledflight.flightNumber}}</li>
+     <li>arrivalTime is {{getDate(scheduledflight.arrivalTime)}}</li>
+     <li>departureTime is {{getDate(scheduledflight.departureTime)}}</li>
+     <li>sourceAirport is {{scheduledflight.sourceAirport}}</li>
+     <li>destinationAirport is {{scheduledflight.destinationAirport}}</li>
+     <li>airportCode is {{scheduledflight.airportCode}}</li>
+     <li>flightModel is {{scheduledflight.flightModel}}</li>
+     <li>carrierName is {{scheduledflight.carrierName}}</li>
+     <li>seatCapacity is {{scheduledflight.seatCapacity}}</li>
+    </ul>
+ 
+  
+  </div>

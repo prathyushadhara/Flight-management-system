@@ -1,0 +1,31 @@
+
+<div class="container">
+    <table class="table" >
+      <thead class="thead-light" style="margin-top: 500px;">
+        <tr>
+        <th>Schedule Id</th>
+        <th>Arrival Time</th>
+        <th>Departure Time</th>
+        <th>Source Airport</th>
+        <th>Destination Airport</th>
+        <th>Airport Code</th>
+        <th>Airport Name</th>
+        <th>Airport Location</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let schedule of schedules">
+          <td>{{schedule.scheduleId}}</td>
+          <td>{{getDate(schedule.arrivalTime)}}</td>
+          <td>{{getDate(schedule.departureTime)}}</td>
+          <td>{{schedule.sourceAirport}}</td>
+          <td>{{schedule.destinationAirport}}</td>
+          <td>{{schedule.airportCode}}</td>
+          <td>{{schedule.airportName}}</td>
+          <td>{{schedule.airportLocation}}</td>
+          <td><button type="button" class="btn btn-large btn-warning" (click)=removeSchedule(schedule.scheduleId)>Remove</button></td>
+  
+        </tr>
+      </tbody>
+    </table>
+  </div>
